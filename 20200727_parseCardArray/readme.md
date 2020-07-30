@@ -14,5 +14,5 @@ cardNumber ownerName (two fields separated by space). For example:
 1334576487658953 Ivan
 The card is Visa if the number start with "12".
 The card is Master if the number start with "13".  
-Implement method that return array of card.
+Implement method that return array of card. Implement method toSecureString that masks the card number. 
 
