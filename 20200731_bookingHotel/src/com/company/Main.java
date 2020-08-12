@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+
 	  Booking b1=new Booking(
 	          new StandardRoom("1",2),
               new Person("Jack"),
@@ -45,6 +46,7 @@ public class Main {
         bookingList.print();
 
 
-
     }
+
+
 }

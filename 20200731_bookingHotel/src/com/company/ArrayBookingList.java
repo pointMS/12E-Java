@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ArrayBookingList implements BookingList{
     private Booking[] bookings;
     private int size=0;
@@ -35,5 +38,11 @@ public class ArrayBookingList implements BookingList{
         for (int i=0;i<size;i++){
             System.out.println(bookings[i]);
         }
+    }
+
+    @Override
+    public Booking[] getSortedArray(Comparator<Booking> comparator) {
+        Arrays.sort(bookings,comparator);
+        return bookings;
     }
 }
