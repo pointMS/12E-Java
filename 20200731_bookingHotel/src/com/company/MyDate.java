@@ -1,11 +1,11 @@
 package com.company;
 
-public class Date {
+public class MyDate implements Comparable<MyDate> {
     private int day;
     private int month;
     private int year;
 
-    public Date(int day, int month, int year) {
+    public MyDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
@@ -76,6 +76,37 @@ public class Date {
 
     public int getDaysPerYear(){
         return getDaysPerYear(this.year);
+    }
+
+    @Override
+    public int compareTo(MyDate date) {
+        int checkYears = this.year - date.year;
+        int checkMonth = this.month - date.month;
+        int checkDays = this.day - date.day;
+
+        if (checkYears!=0) {
+            return checkYears;
+        } else {                             // this.year == date.year;
+            if (checkMonth!=0){
+                return checkMonth;
+            } else {                        // this.month == date.month;
+                return  checkDays;
+            }
+        }
+
+
+        /*
+        if (checkYears > 0) {
+            return 1;
+        } else if (checkYears == 0) {
+            if (checkMonth == 0) {
+                return checkDays;
+            } else if (checkMonth > 0) {
+                return 1;
+            } else return -1;
+        } else return -1;
+
+         */
     }
 
 }

@@ -3,22 +3,35 @@ package com.company;
 import java.util.Random;
 
 public class DateInterval {
-    private Date start;
-    private Date finish;
+    private MyDate start;
+    private MyDate finish;
     private static  Random rnd = new Random(System.currentTimeMillis());
     private int days=0;
 
 
-    public DateInterval(Date start, Date finish) {
-        this.start = start;
-        this.finish = finish;
+    public DateInterval(MyDate start, MyDate finish) {
+        if(start.compareTo(finish)>0){
+            this.start=finish;
+            this.finish=start;
+        } else {
+            this.start = start;
+            this.finish = finish;
+        }
     }
 
-    public Date getStart() {
+    public static boolean isIntersect(DateInterval interval1, DateInterval interval2) {
+
+        return !((interval1.getStart().compareTo(interval2.getFinish())>0)||
+        (interval2.getStart().compareTo(interval1.getFinish())>0));
+
+
+    }
+
+    public MyDate getStart() {
         return start;
     }
 
-    public Date getFinish() {
+    public MyDate getFinish() {
         return finish;
     }
 
@@ -36,7 +49,7 @@ public class DateInterval {
 */
         if (days == 0){
             for(int i = start.getYear();i<finish.getYear();i++){
-                days+=Date.getDaysPerYear(i);
+                days+= MyDate.getDaysPerYear(i);
             }
             days-=start.daysFromNewYear();
             days+=finish.daysFromNewYear();
