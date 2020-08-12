@@ -42,7 +42,8 @@ public class ArrayBookingList implements BookingList{
 
     @Override
     public Booking[] getSortedArray(Comparator<Booking> comparator) {
-        Arrays.sort(bookings,comparator);
-        return bookings;
+        Booking[] res = Arrays.copyOf(bookings,bookings.length);
+        Arrays.sort(res,comparator);
+        return res;
     }
 }

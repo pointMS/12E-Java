@@ -12,7 +12,6 @@ public class Booking {
         this.person = person;
         this.dateInterval = dateInterval;
         this.id=++nextId;
-
     }
 
     public Room getRoom() {

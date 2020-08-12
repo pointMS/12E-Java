@@ -1,8 +1,11 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
+
 
 
 	  Booking b1=new Booking(
@@ -36,16 +39,23 @@ public class Main {
         );
 
         BookingList bookingList = new ArrayBookingList(2);
-        bookingList.add(b1);
-        bookingList.add(b2);
-        bookingList.add(b3);
         bookingList.add(b4);
-        bookingList.add(b1);
         bookingList.add(b2);
         bookingList.add(b3);
+        bookingList.add(b1);
         bookingList.print();
+      System.out.println("---------------------------------");
+        Booking[] bookings=bookingList.getSortedArray(new BookingComparatorByName());
+
+      bookingList.print();
+
+      //
+      System.out.println("------------------");
 
 
+      bookingList.print();
+      System.out.println("----------------------");
+      System.out.println(Arrays.toString(bookings));
     }
 
 
