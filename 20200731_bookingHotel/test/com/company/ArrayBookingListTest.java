@@ -42,6 +42,39 @@ public class ArrayBookingListTest {
         bookingList.add(b2);
         bookingList.add(b3);
     }
+    @Test
+    public void getByIndexCorrectReturnBooking(){
+        Assert.assertEquals("the first element fail",b1,bookingList.getByIndex(0));
+        Assert.assertEquals("get element fail",b2,bookingList.getByIndex(1));
+        Assert.assertEquals("the last element fail",b3,bookingList.getByIndex(2));
+    }
+    @Test
+    public void getByIndexNotCorrectIndexReturnNull(){
+        Assert.assertTrue("negative index not ok",bookingList.getByIndex(-1)==null);
+        Assert.assertTrue("bigger index not ok",bookingList.getByIndex(3)==null);
+    }
+
+    @Test
+    public  void addCorrectSizeIncrementAndBookingAdd(){
+        Booking booking = new Booking(
+                new SuiteRoom("4",2),
+                new Person("Nick222"),
+                new DateInterval(new MyDate(15,8,2020), new MyDate(13,8,2020)));
+        bookingList.add(booking);
+        Assert.assertEquals(4,bookingList.size());
+        Assert.assertEquals(booking,bookingList.getByIndex(3));
+    }
+
+    @Test
+    public  void addEmptyBookingListCorrectAdded(){
+        BookingList bookingList= new ArrayBookingList(1);
+        bookingList.add(b1);
+        Assert.assertEquals(1,bookingList.size());
+        bookingList.add(b2);
+        Assert.assertEquals(2,bookingList.size());
+        Assert.assertEquals(b1,bookingList.getByIndex(0));
+        Assert.assertEquals(b2,bookingList.getByIndex(1));
+    }
 
     @Test
     public void getSortedByNameArrayTest(){

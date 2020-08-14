@@ -20,6 +20,7 @@ public class ArrayBookingList implements BookingList{
         } else {
             capacity*=2;
             Booking[] temp = new Booking[capacity];
+
             for(int i=0;i<bookings.length;i++){
                 temp[i]= bookings[i];
             }
@@ -45,5 +46,16 @@ public class ArrayBookingList implements BookingList{
         Booking[] res = Arrays.copyOf(bookings,bookings.length);
         Arrays.sort(res,comparator);
         return res;
+    }
+
+
+    @Override
+    public Booking getByIndex(int i) {
+        if(i<0||i>size-1){
+            return null;
+        } else {
+            return bookings[i];
+        }
+
     }
 }

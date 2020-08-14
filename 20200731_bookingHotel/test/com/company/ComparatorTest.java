@@ -31,7 +31,9 @@ public class ComparatorTest {
         int res= comp.compare(b1,b2);
         int res1=comp.compare(b2,b1);
         int res2=comp.compare(b2,b3);
+
         Assert.assertTrue((res>0)&&(res1<0)&&(res2==0));
+
         }
 
     @Test
