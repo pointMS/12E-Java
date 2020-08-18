@@ -4,9 +4,13 @@ import java.util.Arrays;
 
 public class StringArrayHandler {
     private String[] strings;
+    private Action action;
+    private Condition condition;
 
-    public StringArrayHandler(String[] strings) {
+    public StringArrayHandler(String[] strings, Action action, Condition condition) {
         this.strings = strings;
+        this.action = action;
+        this.condition=condition;
     }
 
     public String[] getStrings() {
@@ -18,7 +22,7 @@ public class StringArrayHandler {
         return Arrays.toString(strings);
     }
 
-    public void stringsHandle(Action action, Condition condition ){
+    public void stringsHandle(){
         for (int i =0; i<strings.length;i++){
             if (condition.test(strings[i])){
                 strings[i]=action.doAction(strings[i]);
