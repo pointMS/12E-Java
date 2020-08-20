@@ -1,4 +1,6 @@
-package com.company;
+package com.company.conditions;
+
+import com.company.Condition;
 
 public class LengthMoreThanFourCondition implements Condition {
     @Override

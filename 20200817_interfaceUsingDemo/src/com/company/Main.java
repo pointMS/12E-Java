@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.actions.ReverseStringAction;
+import com.company.actions.ToUpperCaseAction;
+import com.company.conditions.LengthCondition;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -25,7 +29,27 @@ public class Main {
                         new LengthCondition(1));
         stringArrayHandler3.stringsHandle();
         System.out.println(stringArrayHandler3.toString());
+
+        StringArrayHandler stringArrayHandler4=
+                new StringArrayHandler(strings,
+                        new ReverseStringAction(),
+                        null);
+        stringArrayHandler4.stringsHandle();
+        System.out.println(stringArrayHandler4.toString());
+
+        ActionAndConditionExample actAndCond=new ActionAndConditionExample();
+        StringArrayHandler stringArrayHandler5=
+                new StringArrayHandler(strings,
+                        actAndCond,
+                        actAndCond);
+        stringArrayHandler5.stringsHandle();
+        System.out.println(stringArrayHandler5.toString());
+
+
+
     }
+
+
 
 
 

@@ -1,5 +1,6 @@
-package com.company;
+package com.company.conditions;
 
+import com.company.Condition;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
