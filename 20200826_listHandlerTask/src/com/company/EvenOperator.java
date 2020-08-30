@@ -1,7 +1,5 @@
 package com.company;
 
-import javafx.beans.binding.StringBinding;
-
 import java.util.function.UnaryOperator;
 
 public class EvenOperator implements UnaryOperator<String>{
