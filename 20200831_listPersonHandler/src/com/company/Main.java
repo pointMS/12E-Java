@@ -32,6 +32,9 @@ public class Main {
         System.out.println(PersonListHandler.personListHandler(people));
 
 
+        PersonListHandler.setType("post");
+
+
 
 
 

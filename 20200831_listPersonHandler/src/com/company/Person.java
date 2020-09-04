@@ -32,9 +32,19 @@ public class Person {
     }
 
     public List<PersonAddress> getAddresses(String type) {
+       if(type.equals("email")||
+               type.equals("post")||
+               type.equals("billing")){
+           return getAddresses(AddressType.valueOf(type.toUpperCase()));
+       }
+        return new ArrayList<>();
+    }
+
+    public List<PersonAddress> getAddresses(AddressType type){
         List<PersonAddress> res=new ArrayList<>();
         for (PersonAddress address: addresses){
-            if(address.getType().equals(type)){
+            //if(address.getType().equals(type.name().toLowerCase())){
+            if(address.getTypeAsEnum().equals(type)){
                 res.add(address);
             }
         }
